@@ -1,0 +1,202 @@
+Array«
+  import«
+    Comparison, Math«
+      Arith, +, ++, _max», 
+    Iterate», 
+  define«
+    ---«
+      "JS Array operations"», 
+    _array_length«
+      ->>«
+        [«
+          a», 
+        Num», 
+      ->>«
+        arr, asm«
+          arr, `.length`»
+        »
+      », 
+    _array_index«
+      ->>«
+        [«
+          a», 
+        Num, a», 
+      ->>«
+        arr, ind, asm«
+          arr, `[`, ind, `]`»
+        »
+      », 
+    _array«
+      ->>«
+        Num, [«
+          a»
+        », 
+      ->>«
+        len, asm«
+          `Array(`, len, `)`»
+        »
+      », 
+    _resize«
+      ->>«
+        [«
+          a», 
+        Num, Unit», 
+      ->>«
+        arr, size, asm«
+          arr, `.length = `, size»
+        »
+      », 
+    _set«
+      ->>«
+        [«
+          a», 
+        Num, a, Unit», 
+      ->>«
+        arr, ind, val, asm«
+          arr, `[`, ind, `] = `, val»
+        »
+      »
+    », 
+  instance«
+    Indexed«
+      [«
+        a», 
+      _length«
+        _array_length», 
+      @«
+        _array_index»
+      »
+    », 
+  define«
+    ---«
+      "Operations on arrays"», 
+    |>«
+      ->>«
+        [«
+          b», 
+        ->>«
+          b, a», 
+        [«
+          a»
+        », 
+      ->>«
+        arr, _mapper, do«
+          let«
+            res, _array«
+              _length«
+                arr»
+              »
+            », 
+          _foreach«
+            arr, ->>«
+              a, i, _set«
+                res, i, _mapper«
+                  a»
+                »
+              »
+            », 
+          res»
+        »
+      », 
+    |>?«
+      ->>«
+        [«
+          a», 
+        ->>«
+          a, ?«
+            b»
+          », 
+        [«
+          b»
+        », 
+      ->>«
+        arr, _mapper, do«
+          let«
+            res, _array«
+              _length«
+                arr»
+              »
+            », 
+          let«
+            i, -1», 
+          _foreach«
+            arr, ->>«
+              a, _, match«
+                _mapper«
+                  a», 
+                |«
+                  ?«
+                    b», 
+                  _set«
+                    res, ++«
+                      i», 
+                    b»
+                  », 
+                |«
+                  _, ()»
+                »
+              »
+            », 
+          _resize«
+            res, +«
+              i, 1»
+            », 
+          res»
+        »
+      », 
+    |>_«
+      ->>«
+        [«
+          a», 
+        [«
+          b», 
+        ->>«
+          a, b», 
+        Unit», 
+      ->>«
+        src, dest, _map, do«
+          _resize«
+            dest, _max«
+              _length«
+                src», 
+              _length«
+                dest»
+              »
+            », 
+          _foreach«
+            src, ->>«
+              a, i, _set«
+                dest, i, _map«
+                  a»
+                »
+              »
+            »
+          »
+        »
+      », 
+    |>\«
+      ->>«
+        [«
+          a», 
+        b, ->>«
+          b, a, b», 
+        b», 
+      ->>«
+        arr, initial, _fold, do«
+          let«
+            res, initial», 
+          _foreach«
+            arr, ->>«
+              a, _, _ignore«
+                set«
+                  res, _fold«
+                    res, a»
+                  »
+                »
+              »
+            », 
+          res»
+        »
+      »
+    »
+  »

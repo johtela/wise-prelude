@@ -1,0 +1,12 @@
+Vector«
+  import«
+    Math», 
+  type«
+    Vec2«
+      alias«
+        («
+          Num, Num»
+        »
+      »
+    »
+  »
