@@ -1,0 +1,1 @@
+{"programName":"prelude","storages":[{"type":"local","name":"local:prelude/","removable":false,"writable":true,"repository":"johtela/wise-prelude"},{"type":"web","name":"/samples/","removable":true,"writable":false}],"panes":[{"tabs":[{"module":"Test1"}]}],"paneLayout":"horizontal","maximized":false}
