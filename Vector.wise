@@ -1,1 +1,1 @@
-Vector«import«Math», type«Vec2«alias«(«Num, Num»»»», instance«Arith«Vec2, _zero«->>«_, («0, 0»»», _one«->>«_, («1, 1»»», +«->>«a, b, asm«a, ` + `, b»»», -«->>«a, b, asm«a, ` - `, b»»», *«->>«a, b, asm«a, ` * `, b»»», /«->>«a, b, asm«a, ` / `, b»»»»»»
+Vector«import«Math, Tuple», type«Vec2«alias«(«Num, Num»»»», instance«Arith«Vec2, _zero«->>«_, («0, 0»»», _one«->>«_, («1, 1»»», +«->>«a, b, asm«a, ` + `, b»»», -«->>«a, b, asm«a, ` - `, b»»», *«->>«a, b, asm«a, ` * `, b»»», /«->>«a, b, asm«a, ` / `, b»»»»»»
