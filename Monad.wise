@@ -1,0 +1,1 @@
+Monad«import«Base», class«Monad«m«a», >>=«->>«m«a», ->«a, m«b»», m«b»»», >>«->>«m«a», m«b», m«b»»», _return«->>«a, m«a»»»»», instance«Monad«?, >>=«->>«n, fun, match«n, |«?«val», fun«val»», |«_, Null»»»», >>«->>«n1, n2, n2»», _return«->>«val, ?«val»»»»»»
