@@ -1,1 +1,1 @@
-Html/Fetch«import«Base, Collection, Array», type«Response«object«ok«Bool», status«Num», statusText«Str», url«Str»»»»»
+Html/Fetch«import«Lang/Base, Data/Collection, Data/Array», type«Response«object«ok«Bool», status«Num», statusText«Str», url«Str»»»»»
