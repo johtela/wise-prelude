@@ -1,1 +1,0 @@
-Data/Dict«import«Lang/Object, Data/Collection», type«object«Dict«a», extends«Object»»», define«#dict«->>«[«(«String, a»», Dict«a»», ->>«values, :«Dict, .from.Object«:«Object, .fromEntries«values»»»»»»»»
