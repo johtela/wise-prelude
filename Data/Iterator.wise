@@ -1,0 +1,1 @@
+Data/Iterator«type«alias«IteratorResult«a», {«done«Bool», value«a»»», alias«Iterator«a», {«next«->«Unit, IteratorResult«a»»»»», object«Iterable«a», Symbol.iterator«Iterator«a»»»»»
