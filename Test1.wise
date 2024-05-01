@@ -2,7 +2,6 @@ Test1«import«Lang/RegExp, Data/List, Data/Dictionary, Data/Iterator, Html/Elem
 
 This module demonstrates some features of the **WISE** language."», type«---«"## Type Aliases
 
-
 Type alias for lazy list of numbers. Alias is just a new name 
 for existing type. It does not define new data types.
 "», alias«NumList, [:«Number»», alias«Foo«.tail», {«"foo"«Number», bar«Bool», .tail»», alias«Nullable, ?«->«Number, Number»»», ---«"## Algebraic Data Types
