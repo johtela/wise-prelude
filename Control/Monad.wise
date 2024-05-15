@@ -43,7 +43,7 @@ mdo
   mreturn y
 ```"», mdo«syntax«mlet«'var, " =", 'value, >>=«'value, ->«'var, 'next»»», mreturn«'value, _return«'value»», _«'expr, >>«'expr, 'next»»»», ---«"## List Comprehension Syntax
 
-Since almost all collections implement `Monad` typeclass, we provide an alternative `seq` macro that resembles list comprehension syntax found in many languages. It enables syntax like this:
+Since almost all collections implement `Monad` typeclass, we provide an alternative syntactic macro `seq` that resembles list comprehension syntax found in many languages. It enables notation like this:
 ```
 seq
   for x in collection1
