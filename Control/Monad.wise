@@ -53,7 +53,7 @@ seq
 ```
 The `for` command is the same as `mlet` in the `mdo` macro, and `yield` is same as `mreturn`. The only addition here is the `where` command that filters &mdash; or rather short circuits the monad chain. That operation only works if there is an instance of `MonadPlus` for the type in question."», seq«syntax«for«'var, "* in*", 'value, >>=«'value, ->«'var, 'next»»», where«'cond, ?>>«'cond, 'next»», yield«'value, _return«'value»»»»», define«---«"## Sequencing Monads
 
-Another way of sequencing monads is to just ignore the result of the first one, and return the second one. So first one is basically only used for side effects."», >>«->>«m«a, Monad», m«b», m«b»», ->>«m1, m2, m2»», ---«"## Filtering
+Another way of sequencing monads is to just ignore the result of the first one, and return the second one. The first one is only used for side effects."», >>«->>«m«a, Monad», m«b», m«b»», ->>«m1, m2, m2»», ---«"## Filtering
 
 The `?>>` macro can be used to filter `MonadPlus` instances. It returns the monad if a predicate is true; otherwise it returns monad zero."», ?>>«->>«Bool, m«a, Monad, MonadPlus», m«a»», ->>«pred, m, if«pred, m, _m0»»», ---«"## Lifting Functions and Macros
 
