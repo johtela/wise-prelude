@@ -35,7 +35,7 @@ Another extension that we can add to a monad is the ability for it to fail or th
 
 The simplest example of a monad is probably the nullable type `?(a)`. Implementing `Monad` typeclass for it type allows chaining functions that might return `null`."», Monad«?, >>=«->>«n, fun, match«n, |«?«val», fun«val»», |«_, Null»»»», _return«->>«val, ?«val»»»»», template«---«"## `mdo` Syntax
 
-As in Haskell we provide a syntactic sugar in form of a macro for composing monads. The `mdo` macro below introduces a block which can contain `mlet` and `mreturn` commands. The former one wraps the `>>=` operation into more convenient syntax. The latter one calls `_return` for given value. Below is an example showing a ? monad:
+There is also Haskell-like syntactic sugar for composing monads. The `mdo` macro below introduces a block which can contain `mlet` and `mreturn` commands. The former one wraps the `>>=` operation into more convenient syntax. The latter one calls `_return` for given value. Below is an example showing a ? monad:
 ```
 mdo
   mlet x = ?(4)
