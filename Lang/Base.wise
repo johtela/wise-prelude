@@ -16,6 +16,6 @@ Here are convenience macros for transforming macros of different arities to corr
 [Currying](https://en.wikipedia.org/wiki/Currying) transforms a function with multiple arguments to an unary function. Wise does not automatically curry functions, but you can do it explicitly using these macros."», #2«->>«fun, ->«a, ->«b, fun«a, b»»»»», #3«->>«fun, ->«a, ->«b, ->«c, fun«a, b, c»»»»»», #4«->>«fun, ->«a, ->«b, ->«c, ->«d, fun«a, b, c, d»»»»»»», ---«"### Chaining Functions
 
 
-The chaining operator `>->` is the same as Haskell's point (`.`) operator but its arguments are in reverse order. `f1 >-> f2` returns a function that applies first function `f1` and then function `f2` to a value."», >->«->>«f1, f2, ->«a, f2«f1«a»»»»»», define«---«"## Console Output
+The chaining operator `>->` is the same as Haskell's point (`.`) operator with arguments reversed. `f1 >-> f2` returns a function that applies first function `f1` and then function `f2` to a value."», >->«->>«f1, f2, ->«a, f2«f1«a»»»»»», define«---«"## Console Output
 
 `_log` is the JS equivalent of `print` in other languages."», _log«->>«a, Unit», ->>«val, asm«`console.log(`, val, `)`»»»»»
