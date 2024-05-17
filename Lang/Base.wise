@@ -1,6 +1,6 @@
 Lang/Base«---«"# Base Definitions
 
-This module contains elementary definitions for built-in types, functions and macros, and JS interoperability."», define«---«"Macro returning Javascript `undefined` value."», _undefined«asm«`undefined`»», ---«"If an expression expects the unit type (for example `while` expression) but you want to use a value of a different type, you can ignore the type with this macro."», _ignore«->>«exp, do«exp, ()»»», ---«"The identity macro returns its argument."», _id«->>«val, val»», ---«"## Mutable Type
+This module contains elementary definitions for built-in types, functions and macros, and JS interoperability."», define«---«"Macro returning Javascript `undefined` value."», _undefined«asm«`undefined`»», ---«"If an expression expects the unit type (for example `while` expression) but you want to pass a value of a different type, you can reconciliate types with `_ignore` macro."», _ignore«->>«exp, do«exp, ()»»», ---«"The identity macro returns its argument."», _id«->>«val, val»», ---«"## Mutable Type
 
 The mutable type `&(a)` has two operators: reference `^` and assignment `:=`"», ^«->>«&«a», a», ->>«mut, asm«mut»»», :=«->>«&«a», a, a», ->>«mut, val, asm«mut, ` = `, val»»»», define«---«"## Nullable Type
 
