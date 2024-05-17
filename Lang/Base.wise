@@ -1,1 +1,21 @@
-Lang/Base«type«alias«Lazy«a», ->«Unit, a»»», define«_undefined«asm«`undefined`»»», define«---«"Elementary macros"», _ignore«->>«exp, do«exp, ()»»», _id«->>«val, val»», ^«->>«&«a», a», ->>«mut, asm«mut»»», :=«->>«&«a», a, a», ->>«mut, val, asm«mut, ` = `, val»»»», define«---«"Operations for nullable values"», ?has«->>«?«a», Bool», ->>«val, asm«val, ` != null`»»», ?with«->>«?«a», ->>«a, Unit», Unit», ->>«a, _mac, if«?has«a», _mac«asm«a»»»»»», define«---«"Lazy macros"», \«->>«a, Lazy«a»», ->>«expr, ->«_, expr»»», \!«->>«Lazy«a», a», ->>«lazy, «lazy, ()»»», _memoize«->>«Lazy«a», Lazy«a»», ->>«lazy, do«set«memo, Null», ->«_, match«^«memo», |«?«v», v», |«_, do«let«val, \!«lazy»», :=«memo, ?«val»», val»»»»»»», \_«->>«expr, _memoize«\«expr»»»»», define«---«"Convert macros to functions"», _tofun«->>«->>«a, b», ->«a, b»», ->>«_mac, ->«a, _mac«a»»»», _tofun2«->>«->>«a, b, c», ->«a, b, c»», ->>«_mac, ->«a, b, _mac«a, b»»»», _tofun3«->>«->>«a, b, c, d», ->«a, b, c, d»», ->>«_mac, ->«a, b, c, _mac«a, b, c»»»», _tofun4«->>«->>«a, b, c, d, e», ->«a, b, c, d, e»», ->>«_mac, ->«a, b, c, d, _mac«a, b, c, d»»»»», define«---«"Currying functions"», #2«->>«fun, ->«a, ->«b, fun«a, b»»»»», #3«->>«fun, ->«a, ->«b, ->«c, fun«a, b, c»»»»»», #4«->>«fun, ->«a, ->«b, ->«c, ->«d, fun«a, b, c, d»»»»»»», ---«"Chaining functions"», >->«->>«f1, f2, ->«a, f2«f1«a»»»»»», define«---«"Console output"», _log«->>«a, Unit», ->>«val, asm«`console.log(`, val, `)`»»»»»
+Lang/Base«---«"# Base Definitions
+
+This module contains elementary definitions for built-in types, functions and macros, and JS interoperability."», define«---«"Macro returning Javascript `undefined` value."», _undefined«asm«`undefined`»», ---«"If an expression expects the unit type (for example `while` expression) but you want to use a value of a different type, you can ignore the type with this macro."», _ignore«->>«exp, do«exp, ()»»», ---«"The identity macro returns its argument."», _id«->>«val, val»», ---«"## Mutable Type
+
+The mutable type `&(a)` has two operators: reference `^` and assignment `:=`"», ^«->>«&«a», a», ->>«mut, asm«mut»»», :=«->>«&«a», a, a», ->>«mut, val, asm«mut, ` = `, val»»»», define«---«"## Nullable Type
+
+
+Here are few helper macros for nullable values. `?has` returns true if a value is not null. `?with` passes the value to a macro, if it's not null."», ?has«->>«?«a», Bool», ->>«val, asm«val, ` != null`»»», ?with«->>«?«a», ->>«a, Unit», Unit», ->>«a, _mac, if«?has«a», _mac«asm«a»»»»»», ---«"## Lazy Type
+
+Lazy type is a generic function with no arguments. We provide an operator for defining lazy values (`\`), for evaluating (`\!`) and [memoizing](https://en.wikipedia.org/wiki/Memoization) (`\_`) them.
+"», type«alias«Lazy«a», ->«Unit, a»»», define«\«->>«a, Lazy«a»», ->>«expr, ->«_, expr»»», \!«->>«Lazy«a», a», ->>«lazy, «lazy, ()»»», _memoize«->>«Lazy«a», Lazy«a»», ->>«lazy, do«set«memo, Null», ->«_, match«^«memo», |«?«v», v», |«_, do«let«val, \!«lazy»», :=«memo, ?«val»», val»»»»»»», \_«->>«expr, _memoize«\«expr»»»»», define«---«"### Transforming Macros to Functions
+
+Here are convenience macros for transforming macros of different arities to corresponding functions. Macros can't be stored in variables or returned from other macros. These transformations come in handy when we want to convert a macro to a storable value."», _tofun«->>«->>«a, b», ->«a, b»», ->>«_mac, ->«a, _mac«a»»»», _tofun2«->>«->>«a, b, c», ->«a, b, c»», ->>«_mac, ->«a, b, _mac«a, b»»»», _tofun3«->>«->>«a, b, c, d», ->«a, b, c, d»», ->>«_mac, ->«a, b, c, _mac«a, b, c»»»», _tofun4«->>«->>«a, b, c, d, e», ->«a, b, c, d, e»», ->>«_mac, ->«a, b, c, d, _mac«a, b, c, d»»»»», define«---«"### Currying Functions
+
+
+[Currying](https://en.wikipedia.org/wiki/Currying) transforms a function with multiple arguments to an unary function. Wise does not automatically curry functions, but you can do it explicitly using these macros."», #2«->>«fun, ->«a, ->«b, fun«a, b»»»»», #3«->>«fun, ->«a, ->«b, ->«c, fun«a, b, c»»»»»», #4«->>«fun, ->«a, ->«b, ->«c, ->«d, fun«a, b, c, d»»»»»»», ---«"### Chaining Functions
+
+
+The chaining operator `>->` is the same as Haskell's point (`.`) operator but its arguments are in reverse order. `f1 >-> f2` returns a function that applies first function `f1` and then function `f2` to a value."», >->«->>«f1, f2, ->«a, f2«f1«a»»»»»», define«---«"## Console Output
+
+`_log` is the JS equivalent of `print` in other languages."», _log«->>«a, Unit», ->>«val, asm«`console.log(`, val, `)`»»»»»
