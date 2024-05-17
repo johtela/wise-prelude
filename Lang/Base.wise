@@ -2,7 +2,7 @@ Lang/Base«---«"# Base Definitions
 
 This module contains elementary definitions for built-in types, functions and macros, and JS interoperability."», define«---«"Macro returning Javascript `undefined` value."», _undefined«asm«`undefined`»», ---«"If an expression expects the unit type (for example `while` expression) but you want to pass a value of a different type, you can reconciliate types with `_ignore` macro."», _ignore«->>«exp, do«exp, ()»»», ---«"The identity macro returns its argument."», _id«->>«val, val»», ---«"## Mutable Type
 
-The mutable type `&(a)` has two operators: reference `^` and assignment `:=`"», ^«->>«&«a», a», ->>«mut, asm«mut»»», :=«->>«&«a», a, a», ->>«mut, val, asm«mut, ` = `, val»»»», define«---«"## Nullable Type
+The mutable type `&(a)` has two operators: dereference `^` and assignment `:=`"», ^«->>«&«a», a», ->>«mut, asm«mut»»», :=«->>«&«a», a, a», ->>«mut, val, asm«mut, ` = `, val»»»», define«---«"## Nullable Type
 
 
 Here are few helper macros for nullable values. `?has` returns true if a value is not null. `?with` passes the value to a macro, if it's not null."», ?has«->>«?«a», Bool», ->>«val, asm«val, ` != null`»»», ?with«->>«?«a», ->>«a, Unit», Unit», ->>«a, _mac, if«?has«a», _mac«asm«a»»»»»», ---«"## Lazy Type
