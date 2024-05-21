@@ -12,9 +12,7 @@ The Vector class extends the Arith class with following operators:
 
 - `_lensqr`($vecv$) returns the squared length of $vecv$, which equals to: $$sum_{i=0}^{n-1} v_i^2$$ The length (or magnitude) of the vector $norm{vecv}$ can be calculated by taking the square root of the result.
 
-
-- $vecv\ tt""<.>""\ vecu$ returns the dot product of two vectors $vecv * vecu$. Its defined as: $$vecv * vecu = sum_{i=0}^{n-1} v_i * u_i$$
-
+- $vecv\ tt""<.>""\ vecu$ returns the dot product of two vectors $vecv * vecu$. It's defined as: $$vecv * vecu = sum_{i=0}^{n-1} v_i * u_i$$
 
 - `_norm`($vecv$) returns the normalized vector $hatv$ defined as:
 $$hatv = vecv/norm{vecv} = [ v_0/norm{vecv}, ..., v_{n-1}/norm{vecv} ]$$"», class«Vector«v«Arith», _unif«->>«Number, v»», _dim«->>«v, Number»», _comp«->>«v, Number, Number»», _lensqr«->>«v, Number»», <.>«->>«v, v, Number»», _norm«->>«v, v»»»», define«---«"We define length $norm{vecv}$ generically for all vectors using the `_lensqr` method."», _veclen«->>«v, :«Math, .sqrt«_lensqr«v»»»»»», ---«"## 2D and 3D Vector
