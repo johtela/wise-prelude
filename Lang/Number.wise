@@ -1,3 +1,3 @@
-Lang/Number«---«"# Numbers
+Lang/Number«---«"# 🔢 Numbers
 
 Number is not a primitive type in Wise, but an object that has the same static properties and methods as the `Number` type in Javascript."», type«object«Number, EPSILON«Number, static, get», MAX_SAFE_INTEGER«Number, static, get», MAX_VALUE«Number, static, get», MIN_SAFE_INTEGER«Number, static, get», MIN_VALUE«Number, static, get», NaN«Number, static, get», NEGATIVE_INFINITY«Number, static, get», POSITIVE_INFINITY«Number, static, get», isFinite«->«Number, Bool», static», isInteger«->«Number, Bool», static», isNaN«->«Number, Bool», static», isSafeInteger«->«Number, Bool», static»»»»

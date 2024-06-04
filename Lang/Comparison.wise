@@ -1,4 +1,4 @@
-Lang/Comparison«import«Lang/String», ---«"# Comparison and Logical Operators
+Lang/Comparison«import«Lang/String», ---«"# ⚖️ Comparison and Logical Operators
 
 Basic comparison and logical operators are defined here. Typically these are built into a programming language core, but in Wise they are macros and typeclass methods."», define«---«"## Logical Operators
 
