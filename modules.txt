@@ -4,7 +4,6 @@ Data/Array
 Data/Collection
 Data/List
 Data/Tuple
-Html/Element
 Html/Fetch
 Lang/Base
 Lang/Comparison
