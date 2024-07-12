@@ -14,4 +14,7 @@ To order its values a type must provide instance of Ord class. An ordered type m
 
 We provide definition for equality for primitive types. The strict JS equality `===` is used for Bool, Number, and String types. In Wise, you can only compare values of a same type, so no coercion will happen anyway."», Eq«Bool, ==«_js_eq», !=«_js_neq»», Eq«Number, ==«_js_eq», !=«_js_neq»», Eq«String, ==«_js_eq», !=«_js_neq»», ---«"Mutable types need to be derefenced before comparing their values. To avoid this, we provide an instance that does that automatically."», Eq«&«a«Eq»», ==«->>«a, b, ==«^«a», ^«b»»»», !=«->>«a, b, !=«^«a», ^«b»»»»», ---«"## Instances for Ord Class
 
-We define ordering for numbers using the JS operators. Mutable types can be ordered if their argument type can."», Ord«Number, <«_js_lt», >«_js_gt», <=«_js_le», >=«_js_ge»», Ord«&«a«Eq, Ord»», <«->>«a, b, <«^«a», ^«b»»»», >«->>«a, b, >«^«a», ^«b»»»», <=«->>«a, b, <=«^«a», ^«b»»»», >=«->>«a, b, >=«^«a», ^«b»»»»»»»
+We define ordering for numbers using the JS operators. Mutable types can be ordered if their argument type can."», Ord«Number, <«_js_lt», >«_js_gt», <=«_js_le», >=«_js_ge»», Ord«&«a«Eq, Ord»», <«->>«a, b, <«^«a», ^«b»»»», >«->>«a, b, >«^«a», ^«b»»»», <=«->>«a, b, <=«^«a», ^«b»»»», >=«->>«a, b, >=«^«a», ^«b»»»»»», template«---«"## Logical Syntactic Macros
+
+
+For convenience we provide few syntactic macros that make writing complex logical expressions easier."», all«syntax«_«'expr, ",", &&«'expr, 'next»», and«'expr, 'expr»»»»»
