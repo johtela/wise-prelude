@@ -17,4 +17,4 @@ We provide definition for equality for primitive types. The strict JS equality `
 We define ordering for numbers using the JS operators. Mutable types can be ordered if their argument type can."», Ord«Number, <«_js_lt», >«_js_gt», <=«_js_le», >=«_js_ge»», Ord«&«a«Eq, Ord»», <«->>«a, b, <«^«a», ^«b»»»», >«->>«a, b, >«^«a», ^«b»»»», <=«->>«a, b, <=«^«a», ^«b»»»», >=«->>«a, b, >=«^«a», ^«b»»»»»», template«---«"## Logical Syntactic Macros
 
 
-For convenience we provide few syntactic macros that make writing complex logical expressions easier."», all«syntax«_«'expr, ",", &&«'expr, 'next»», and«'expr, 'expr»»»»»
+For convenience we provide few syntactic macros that make writing complex logical expressions easier."», all«syntax«_«'expr, ",", &&«'expr, 'next»», $«'expr, ".", 'expr»»»»»
