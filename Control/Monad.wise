@@ -1,6 +1,6 @@
 Control/Monad«---«"# Monads
 
-Monad typeclass is copied blatantly from Haskell. The concept of monad is described in [Haskell Wiki](https://wiki.haskell.org/Merely_monadic) like this:
+The Monad typeclass is copied blatantly from Haskell. The concept of monad is described in [Haskell Wiki](https://wiki.haskell.org/Merely_monadic) like this:
 
 > In Haskell, monadic types &mdash; types having an instance for the Monad class &mdash; can be thought of as abstract descriptors of computations which are inherently composable. Smaller monadic expressions (actions) can be used to build larger ones.
 > 
