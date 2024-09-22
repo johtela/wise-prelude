@@ -1,1 +1,0 @@
-Editor/Keymap«import«Data/Dictionary», type«alias«CommandArgs, Dictionary«String»», alias«KeyCommand, {«command«String», args«?«CommandArgs»», when«String»»», data«KeyBinding, |«CmdStr«String», CmdStrs«[«String»», Cmd«KeyCommand», Cmds«[«KeyCommand»», Kmap«Keymap»»», alias«Keymap, Dictionary«KeyBinding»»»»
