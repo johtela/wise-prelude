@@ -13,7 +13,7 @@ Lazy type is a generic function with no arguments. We provide an operator for de
 Here are convenience macros for transforming macros of different arities to corresponding functions. Macros can't be stored in variables or returned from other macros. These transformations come in handy when we want to convert a macro to a storable value."», _tofun«->>«->>«a, b», ->«a, b»», ->>«_mac, ->«a, _mac«a»»»», _tofun2«->>«->>«a, b, c», ->«a, b, c»», ->>«_mac, ->«a, b, _mac«a, b»»»», _tofun3«->>«->>«a, b, c, d», ->«a, b, c, d»», ->>«_mac, ->«a, b, c, _mac«a, b, c»»»», _tofun4«->>«->>«a, b, c, d, e», ->«a, b, c, d, e»», ->>«_mac, ->«a, b, c, d, _mac«a, b, c, d»»»»», define«---«"### Currying Functions
 
 
-[Currying](https://en.wikipedia.org/wiki/Currying) transforms a function with multiple arguments to an unary function. Wise does not automatically curry functions, but you can do it explicitly using these macros."», #2«->>«fun, ->«a, ->«b, fun«a, b»»»»», #3«->>«fun, ->«a, ->«b, ->«c, fun«a, b, c»»»»»», #4«->>«fun, ->«a, ->«b, ->«c, ->«d, fun«a, b, c, d»»»»»»», ---«"### Chaining Functions
+[Currying](https://en.wikipedia.org/wiki/Currying) transforms a function with multiple arguments to an unary function. Wise does not automatically curry functions, but you can do it explicitly using these macros."», #2«->>«fun, a, ->«b, fun«a, b»»»», #3/1«->>«fun, a, ->«b, c, fun«a, b, c»»»», #3/2«->>«fun, a, b, ->«c, fun«a, b, c»»»», ---«"### Chaining Functions
 
 
 The chaining operator `>->` is the same as Haskell's point (`.`) operator with arguments reversed. `f1 >-> f2` returns a function that applies first function `f1` and then function `f2` to a value."», >->«->>«f1, f2, ->«a, f2«f1«a»»»»»», define«---«"### Fold Macros
