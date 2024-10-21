@@ -39,7 +39,7 @@ mdo
   mlet x = ?(4)
   mlet y = needValue(x)
   mreturn y
-```"», mdo«syntax«mlet«'var, " =", 'value, >>=«'value, ->«'var, 'next»»», mreturn«'value, _return«'value»», _«'expr, >>«'expr, 'next»»»», ---«"## List Comprehension Syntax
+```"», mdo«syntax«mlet«'var, " = ", 'value, >>=«'value, ->«'var, 'next»»», mreturn«'value, _return«'value»», _«'expr, >>«'expr, 'next»»»», ---«"## List Comprehension Syntax
 
 Since almost all collections implement `Monad` typeclass, we provide an alternative syntactic macro `seq` that resembles list comprehension syntax found in many languages. It enables notation like this:
 ```
@@ -49,7 +49,7 @@ seq
   where x == y
   yield x + y
 ```
-The `for` command is the same as `mlet` in the `mdo` macro, and `yield` is same as `mreturn`. The only addition here is the `where` command that filters &mdash; or rather short circuits the monad chain. That operation only works if there is an instance of `MonadPlus` for the type in question."», seq«syntax«for«'var, "* in*", 'value, >>=«'value, ->«'var, 'next»»», where«'cond, ?>>«'cond, 'next»», yield«'value, _return«'value»»»»», define«---«"## Sequencing Monads
+The `for` command is the same as `mlet` in the `mdo` macro, and `yield` is same as `mreturn`. The only addition here is the `where` command that filters &mdash; or rather short circuits the monad chain. That operation only works if there is an instance of `MonadPlus` for the type in question."», seq«syntax«for«'var, " *in* ", 'value, >>=«'value, ->«'var, 'next»»», where«'cond, ?>>«'cond, 'next»», yield«'value, _return«'value»»»»», define«---«"## Sequencing Monads
 
 Another way of sequencing monads is to just ignore the result of the first one, and return the second one. The first one is only used for side effects."», >>«->>«m«a, Monad», m«b», m«b»», ->>«m1, m2, m2»», ---«"## Filtering
 
