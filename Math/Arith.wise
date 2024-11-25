@@ -1,9 +1,13 @@
-Math/Arith«import«Lang/Comparison, Math/Base», ---«"# ➗ Arithmetic Operators
+Math/Arith«import«Lang/Comparison, Math/Base», class«---«"# ➗ Arithmetic Operators
 
-The basic arithmetic operators such as negation, addition, subtraction, multiplication, and division are defined in the Arith typeclass. Zero and one are overloaded constants in that class. This allows overloading operators for numeric sets like $NN, RR, CC,$ as well as multidimensional sets such as vectors."», class«Arith«a«Eq», _0«a», _1«a», _-«->>«a, a»», +«->>«a, a, a»», -«->>«a, a, a»», *«->>«a, a, a»», /«->>«a, a, a»», _abs«->>«a, a»», _floor«->>«a, a»», _ceil«->>«a, a»», _round«->>«a, a»»»», instance«---«"## Arith Instance for Number
+The basic arithmetic operators such as negation, addition, subtraction, multiplication, and division are defined in the Arith typeclass. Zero and one are overloaded constants in that class. This allows overloading operators for numeric sets like $NN, RR, CC,$ as well as multidimensional sets such as vectors."», Arith«a«Eq», _0«a», _1«a», _-«->>«a, a»», +«->>«a, a, a»», -«->>«a, a, a»», *«->>«a, a, a»», /«->>«a, a, a»», _abs«->>«a, a»», _floor«->>«a, a»», _ceil«->>«a, a»», _round«->>«a, a»»», ---«"## Bitwise Operators
+
+For integer types we can also define bitwise operators: not, and, or, xor, and shift left/right."», Integer«a«Eq», _~«->>«a, a»», _&_«->>«a, a, a»», _|_«->>«a, a, a»», _^_«->>«a, a, a»», _<<_«->>«a, a, a»», _>>_«->>«a, a, a»»»», instance«---«"## Arithmetic Operators for Number
+
+Number is naturally the first type that implements Arith class. All the operations translate to ""native"" JS code."», Arith«Number, _0«0», _1«1», _-«->>«a, asm«`-`, a»»», +«->>«a, b, asm«a, ` + `, b»»», -«->>«a, b, asm«a, ` - `, b»»», *«->>«a, b, asm«a, ` * `, b»»», /«->>«a, b, asm«a, ` / `, b»»», _abs«:«Math, .abs»», _floor«:«Math, .floor»», _ceil«:«Math, .ceil»», _round«:«Math, .round»»», ---«"## Numbers Are Also Integers
 
 
-Number is naturally the first type that implements Arith class. All the operations translate to ""native"" JS code."», Arith«Number, _0«0», _1«1», _-«->>«a, asm«`-`, a»»», +«->>«a, b, asm«a, ` + `, b»»», -«->>«a, b, asm«a, ` - `, b»»», *«->>«a, b, asm«a, ` * `, b»»», /«->>«a, b, asm«a, ` / `, b»»», _abs«:«Math, .abs»», _floor«:«Math, .floor»», _ceil«:«Math, .ceil»», _round«:«Math, .round»»»», define«---«"## Mutating Operators
+Even though the number type is intrisincly represented as a floating point, it can be coerced to an integer value by using a bitwise operator. This somewhat strange behavior comes directly from Javascript."», Integer«Number, _~«->>«a, asm«`~`, a»»», _&_«->>«a, b, asm«a, ` & `, b»»», _|_«->>«a, b, asm«a, ` | `, b»»», _^_«->>«a, b, asm«a, ` ^ `, b»»», _<<_«->>«a, b, asm«a, ` << `, b»»», _>>_«->>«a, b, asm«a, ` >> `, b»»»»», define«---«"## Mutating Operators
 
 
 We also provide the familiar variants of arithmetic operators that mutate their first argument. Naturally the type of the first argument is mutable `&(a: Eq, Arith)` for all these."», ++«->>«var, :=«var, +«^«var», _1»»»», --«->>«var, :=«var, -«^«var», _1»»»», +=«->>«var, num, :=«var, +«^«var», num»»»», -=«->>«var, num, :=«var, -«^«var», num»»»», *=«->>«var, num, :=«var, *«^«var», num»»»», /=«->>«var, num, :=«var, /«^«var», num»»»»», define«---«"## Aggregate Operators

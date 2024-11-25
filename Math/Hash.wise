@@ -1,0 +1,1 @@
+Math/Hash«import«Math/Arith», class«Hashable«a, _hash«->>«a, Number»»»», define«hashString«->«str, do«let«len, :«String, .length«str»»», set«hash, 0», set«i, -1», while«<«++«i», len», :=«hash, _|_«+«-«_<<_«^«hash», 5», ^«hash»», :«String, .charCodeAt«str, ^«i»»»», 0»»», ^«hash»»»»», instance«Hashable«String, _hash«->>«a, hashString«a»»»»»»
