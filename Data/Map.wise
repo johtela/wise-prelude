@@ -1,0 +1,1 @@
+Data/Map«import«Math/Hash, Data/Collection», type«object«Map«k, v», clear«Unit», delete«->«k, Bool»», forEach«->«->«v, k, Unit», Unit»», get«->«k, v»», has«->«k, Bool»», set«->«k, v, Unit»», size«Number»», alias«<:«k«Hashable», v», Map«k, v»»», define«:map«->>«[«(«k, v»», <:«k, v»», ->>«values, asm«`new Map(`, values, `)`»»»»»
