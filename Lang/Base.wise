@@ -18,6 +18,9 @@ Here are convenience macros for transforming macros of different arities to corr
 
 The chaining operator `>->` is the same as Haskell's point (`.`) operator with arguments reversed. `f1 >-> f2` returns a function that applies first function `f1` and then function `f2` to a value."», >->«->>«f1, f2, ->«a, f2«f1«a»»»»»», define«---«"### Fold Macros
 
-Fold macros make writing expressions with binary operators easier; the same binary operator can be applied three or more arguments in one go."», _fold3«->>«_op, arg1, arg2, arg3, _op«_op«arg1, arg2», arg3»»», _fold4«->>«_op, arg1, arg2, arg3, arg4, _op«_op«_op«arg1, arg2», arg3», arg4»»», _fold5«->>«_op, arg1, arg2, arg3, arg4, arg5, _op«_op«_op«_op«arg1, arg2», arg3», arg4», arg5»»», _fold6«->>«_op, arg1, arg2, arg3, arg4, arg5, arg6, _op«_op«_op«_op«_op«arg1, arg2», arg3», arg4», arg5», arg6»»»», ---«"## Console Output
+Fold macros make writing expressions with binary operators easier; the same binary operator can be applied three or more arguments in one go."», _fold3«->>«_op, arg1, arg2, arg3, _op«_op«arg1, arg2», arg3»»», _fold4«->>«_op, arg1, arg2, arg3, arg4, _op«_op«_op«arg1, arg2», arg3», arg4»»», _fold5«->>«_op, arg1, arg2, arg3, arg4, arg5, _op«_op«_op«_op«arg1, arg2», arg3», arg4», arg5»»», _fold6«->>«_op, arg1, arg2, arg3, arg4, arg5, arg6, _op«_op«_op«_op«_op«arg1, arg2», arg3», arg4», arg5», arg6»»»», define«---«"## Console Output
 
-`_log` is the JS equivalent of `print` in other languages."», define«_log«->>«a, Unit», ->>«val, asm«`console.log(`, val, `)`»»»»»
+`_log` is the JS equivalent of `print` in other languages."», _log«->>«a, Unit», ->>«val, asm«`console.log(`, val, `)`»»»», define«---«"## Type Casts
+
+
+To be able to typecast higher kinded types such as arrays, we define the castable type class."», _cast«->>«c«a», ->>«a, b», c«b»», ->>«coll, " *with* ", _caster, asm«coll»»»»»
