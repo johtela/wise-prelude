@@ -4,7 +4,7 @@ The basic arithmetic operators such as negation, addition, subtraction, multipli
 
 For integer types we can also define bitwise operators: not, and, or, xor, and shift left/right."», Integer«a«Eq», _~«->>«a, a»», _&_«->>«a, a, a»», _|_«->>«a, a, a»», _^_«->>«a, a, a»», _<<_«->>«a, a, a»», _>>_«->>«a, a, a»»»», instance«---«"## Arithmetic Operators for Number
 
-Number is naturally the first type that implements Arith class. All the operations translate to ""native"" JS code."», Arith«Number, _0«0», _1«1», _-«->>«a, asm«`-`, a»»», +«->>«a, b, asm«a, ` + `, b»»», -«->>«a, b, asm«a, ` - `, b»»», *«->>«a, b, asm«a, ` * `, b»»», /«->>«a, b, asm«a, ` / `, b»»», _abs«:«Math, .abs»», _floor«:«Math, .floor»», _ceil«:«Math, .ceil»», _round«:«Math, .round»»», ---«"## Numbers Are Also Integers
+Number is naturally the first type that implements Arith class. All the operations translate to ""native"" JS code."», Arith«Number, _0«0», _1«1», _-«->>«a, asm«`-`, a»»», +«->>«a, b, asm«a, ` + `, b»»», -«->>«a, b, asm«a, ` - `, b»»», *«->>«a, b, asm«a, ` * `, b»»», /«->>«a, b, asm«a, ` / `, b»»», _abs«Math:«.abs»», _floor«Math:«.floor»», _ceil«Math:«.ceil»», _round«Math:«.round»»», ---«"## Numbers Are Also Integers
 
 
 Even though the number type is intrisincly represented as a floating point, it can be coerced to an integer value by using a bitwise operator. This somewhat strange behavior comes directly from Javascript."», Integer«Number, _~«->>«a, asm«`~`, a»»», _&_«->>«a, b, asm«a, ` & `, b»»», _|_«->>«a, b, asm«a, ` | `, b»»», _^_«->>«a, b, asm«a, ` ^ `, b»»», _<<_«->>«a, b, asm«a, ` << `, b»»», _>>_«->>«a, b, asm«a, ` >> `, b»»»»», define«---«"## Mutating Operators
