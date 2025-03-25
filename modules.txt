@@ -10,6 +10,7 @@ Data/Tuple
 Html/Fetch
 Lang/Base
 Lang/Comparison
+Lang/Date
 Lang/Number
 Lang/Object
 Lang/RegExp
@@ -20,4 +21,3 @@ Math/Hash
 Math/Matrix
 Math/Vector
 Test1
-Lang/Date
