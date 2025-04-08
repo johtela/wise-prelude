@@ -18,7 +18,7 @@ The second one `>>=` extracts the value encapsulated in $m(a)$ and produces mona
 
 $$(m(a), a -> m(b)) ->> m(b)$$
 
-All implementation should satisfy [monad laws](https://wiki.haskell.org/Monad_laws) but as in Haskell these are not enforced by the language."»¸ Monad«m«a»¸ >>=«->>«m«a»¸ ->«a¸ m«b»»¸ m«b»»»¸ _return«->>«a¸ m«a»»»»¸ ---«"## MonadPlus Class
+All implementation should satisfy [monad laws](https://wiki.haskell.org/Monad_laws) but as in Haskell these are not enforced by the language."»¸ Monad«m«a¸ *»¸ >>=«->>«m«a»¸ ->«a¸ m«b»»¸ m«b»»»¸ _return«->>«a¸ m«a»»»»¸ ---«"## MonadPlus Class
 
 Monad typeclass can be extended with zero $0_m$ and plus $+_m$ operations. These operations should satisfy the following laws:
 
