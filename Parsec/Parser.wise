@@ -1,0 +1,1 @@
+Parsec/Parser«import«Control/Monad¸ Parsec/Input»¸ type«data«ParseResult«a»¸ |«Ok«Number¸ a»¸ Fail«Number¸ String¸ [«String»»»»¸ data«Parser«a¸ i»¸ Parse«->«ParserInput«i»¸ ParseResult«a»»»»»¸ instance«Monad«Parser¸ >>=«->>«a¸ b¸ throw«"Not implemented"»»»¸ _return«->>«a¸ throw«"Not implemented"»»»»»»
