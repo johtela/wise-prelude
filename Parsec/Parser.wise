@@ -1,1 +1,15 @@
-Parsec/Parser«import«Control/Monad¸ Parsec/Input»¸ type«data«ParseResult«a»¸ |«Ok«Number¸ a»¸ Fail«Number¸ String¸ [«String»»»»¸ data«Parser«a¸ i»¸ Parse«->«ParserInput«i»¸ ParseResult«a»»»»»¸ instance«Monad«Parser¸ >>=«->>«a¸ b¸ throw«"Not implemented"»»»¸ _return«->>«a¸ throw«"Not implemented"»»»»»»
+Parsec/Parser«import«Control/Monad¸ Parsec/Input»¸ ---«"# Parser
+
+This module defines the basic types and combinators for the parser monad. To learn about monadic parsers refer to the list of literature in the [Wikipedia page](https://en.wikipedia.org/wiki/Parser_combinator).
+"»¸ type«---«"## Parser Result
+
+The parser's result is a discriminated union that indicates either success or failure, along with the position in the input stream.
+
+- On success, the parser returns `Ok`, which includes the parsed value of type `a` and the position where parsing ended.
+
+- On failure, the parser returns `Fail`, including the position of the error, a string containing the erroneous input, and an array of inputs that were expected at that point.
+"»¸ data«ParseResult«a»¸ |«Ok«Number¸ a»¸ Fail«Number¸ String¸ [«String»»»»¸ ---«"## Parsing Function
+ 
+The `Parser(a, i)` type encapsulates a parsing function that takes a `ParserInput(i)` stream as input and produces a `ParseResult(a)` as the result. The type parameters `a` and `i` specify the type of the parsed value (`a`) and the type of the terminals in the input stream (`i`)."»¸ data«Parser«a¸ i»¸ Parse«->«ParserInput«i»¸ ParseResult«a»»»»»¸ instance«---«"## Parser Monad
+
+The monadic bind operator `>>=` runs a parser (`p`) and, if successful, passes its result to the `binder` function. The `binder` function then returns a new parser to continue the parsing process. This operation is fundamental for combining parsers and serves as the building block for other combinators."»¸ Monad«Parser¸ >>=«->>«p¸ binder¸ throw«"Not implemented"»»»¸ _return«->>«a¸ throw«"Not implemented"»»»»»»
