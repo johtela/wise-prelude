@@ -35,9 +35,9 @@ Monad typeclass can be extended with zero $0_m$ and plus $+_m$ operations. These
 3. $0_m\ +_m\ m = m$
 4. $m\ +_m\ 0_m = m$
 
-Note that the type argument is same in all occurences of $m$ in the typeclass. It's not possible to add monads of different type together."»¸ MonadPlus«m«a¸ Monad»¸ _m0«m«a»»¸ _m+«->>«m«a»¸ m«a»¸ m«a»»»»¸ ---«"## Failure _is_ an Option
+Note that the type argument is same in all occurences of $m$ in the typeclass. It's not possible to add monads of different type together."»¸ MonadPlus«m«a¸ *¸ Monad»¸ _m0«m«a»»¸ _m+«->>«m«a»¸ m«a»¸ m«a»»»»¸ ---«"## Failure _is_ an Option
 
-Another extension that we can add to a monad is the ability for it to fail or throw an error. The simplest option is to implement the `MonadFail` class. The error type $e$ in the `_fail` method is generic."»¸ MonadFail«m«a¸ Monad»¸ _fail«->>«e¸ m«a»»»»¸ ---«"Implementing `MonadError` is a bit more involved way of adding error management to a monad. It adds operations for throwing and catching errors¸ as well as `_finally` for cleaning up resources."»¸ MonadError«m«a¸ Monad»¸ _throw«->>«e¸ m«a»»»¸ _catch«->>«m«a»¸ ->«e¸ m«a»»¸ m«a»»»¸ _finally«->>«m«a»¸ ->«Unit¸ Unit»¸ m«a»»»»»¸ instance«---«"## Monad for `?(a)` Type
+Another extension that we can add to a monad is the ability for it to fail or throw an error. The simplest option is to implement the `MonadFail` class. The error type $e$ in the `_fail` method is generic."»¸ MonadFail«m«a¸ *¸ Monad»¸ _fail«->>«e¸ m«a»»»»¸ ---«"Implementing `MonadError` is a bit more involved way of adding error management to a monad. It adds operations for throwing and catching errors¸ as well as `_finally` for cleaning up resources."»¸ MonadError«m«a¸ *¸ Monad»¸ _throw«->>«e¸ m«a»»»¸ _catch«->>«m«a»¸ ->«e¸ m«a»»¸ m«a»»»¸ _finally«->>«m«a»¸ ->«Unit¸ Unit»¸ m«a»»»»»¸ instance«---«"## Monad for `?(a)` Type
 
 The simplest example of a monad is probably the nullable type `?(a)`. Implementing `Monad` typeclass for it type allows chaining functions that might return `null`."»¸ Monad«?¸ >>=«->>«n¸ fun¸ match«n¸ |«?«val»¸ fun«val»»¸ |«_¸ Null»»»»¸ _return«->>«val¸ ?«val»»»»»¸ template«---«"## `mdo` Syntax
 
