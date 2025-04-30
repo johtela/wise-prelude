@@ -1,4 +1,4 @@
-Control/Monad«---«"# Monads
+Control/Monad«"# Monads
 
 The Monad typeclass is copied blatantly from Haskell. The concept of monad is described in [Haskell Wiki](https://wiki.haskell.org/Merely_monadic) like this:
 
@@ -8,11 +8,11 @@ The Monad typeclass is copied blatantly from Haskell. The concept of monad is de
 > - the time of composition: when it is defined;
 > - the time of execution: when it is used;
 > - the mode of computation: what else it can do¸ in addition to emitting its single (hence the name) output value.
-"»¸ class«---«"## Functors
+"¸ class«"## Functors
 
 A functor is a concept from functional programming that represents a data structure you can map over. It provides a way to apply a function to the values inside the structure without changing the structure itself.
 
-In practical terms, a functor is any type that implements a map operation. The map function takes a function and applies it to each value inside the functor, returning a new functor with the transformed values."»¸ Functor«f«a¸ *»¸ _map«->>«f«a»¸ " *with* "¸ ->«a¸ b»¸ f«b»»»»¸ ---«"## Monadic Operations
+In practical terms, a functor is any type that implements a map operation. The map function takes a function and applies it to each value inside the functor, returning a new functor with the transformed values."¸ Functor«f«a¸ *»¸ _map«->>«f«a»¸ " *with* "¸ ->«a¸ b»¸ f«b»»»»¸ "## Monadic Operations
 
 In order to implement the `Monad` typeclass a type must have exactly one argument. We denote the implementing type as $m(a)$ where $m$ is the type and $a$ its argument. Monad has two operations. The simpler one `_return` ""lifts"" a value into a monadic type.   
 
@@ -26,7 +26,7 @@ All implementation should satisfy [monad laws](https://wiki.haskell.org/Monad_la
 
 ### Sequencing Monads
 
-Another way of sequencing monads is to just ignore the result of the first one¸ and return the second one. The first one is only used for side effects. The `>>` operation does this and has a default implementation using `>>=` for ""running"" the monads."»¸ Monad«m«a¸ *»¸ >>=«->>«m«a»¸ ->«a¸ m«b»»¸ m«b»»»¸ >>«->>«m«a»¸ m«b»¸ m«b»»¸ ->>«m1¸ m2¸ >>=«m1¸ ->«_¸ m2»»»»¸ _return«->>«a¸ m«a»»»»¸ ---«"## MonadPlus Class
+Another way of sequencing monads is to just ignore the result of the first one¸ and return the second one. The first one is only used for side effects. The `>>` operation does this and has a default implementation using `>>=` for ""running"" the monads."¸ Monad«m«a¸ *»¸ >>=«->>«m«a»¸ ->«a¸ m«b»»¸ m«b»»»¸ >>«->>«m«a»¸ m«b»¸ m«b»»¸ ->>«m1¸ m2¸ >>=«m1¸ ->«_¸ m2»»»»¸ _return«->>«a¸ m«a»»»»¸ "## MonadPlus Class
 
 Monad typeclass can be extended with zero $0_m$ and plus $+_m$ operations. These operations should satisfy the following laws:
 
@@ -35,11 +35,11 @@ Monad typeclass can be extended with zero $0_m$ and plus $+_m$ operations. These
 3. $0_m\ +_m\ m = m$
 4. $m\ +_m\ 0_m = m$
 
-Note that the type argument is same in all occurences of $m$ in the typeclass. It's not possible to add monads of different type together."»¸ MonadPlus«m«a¸ *¸ Monad»¸ _m0«m«a»»¸ _m+«->>«m«a»¸ m«a»¸ m«a»»»»¸ ---«"## Failure _is_ an Option
+Note that the type argument is same in all occurences of $m$ in the typeclass. It's not possible to add monads of different type together."¸ MonadPlus«m«a¸ *¸ Monad»¸ _m0«m«a»»¸ _m+«->>«m«a»¸ m«a»¸ m«a»»»»¸ "## Failure _is_ an Option
 
-Another extension that we can add to a monad is the ability for it to fail or throw an error. The simplest option is to implement the `MonadFail` class. The error type $e$ in the `_fail` method is generic."»¸ MonadFail«m«a¸ *¸ Monad»¸ _fail«->>«e¸ m«a»»»»¸ ---«"Implementing `MonadError` is a bit more involved way of adding error management to a monad. It adds operations for throwing and catching errors¸ as well as `_finally` for cleaning up resources."»¸ MonadError«m«a¸ *¸ Monad»¸ _throw«->>«e¸ m«a»»»¸ _catch«->>«m«a»¸ ->«e¸ m«a»»¸ m«a»»»¸ _finally«->>«m«a»¸ ->«Unit¸ Unit»¸ m«a»»»»»¸ instance«---«"## Monad for `?(a)` Type
+Another extension that we can add to a monad is the ability for it to fail or throw an error. The simplest option is to implement the `MonadFail` class. The error type $e$ in the `_fail` method is generic."¸ MonadFail«m«a¸ *¸ Monad»¸ _fail«->>«e¸ m«a»»»»¸ "Implementing `MonadError` is a bit more involved way of adding error management to a monad. It adds operations for throwing and catching errors¸ as well as `_finally` for cleaning up resources."¸ MonadError«m«a¸ *¸ Monad»¸ _throw«->>«e¸ m«a»»»¸ _catch«->>«m«a»¸ ->«e¸ m«a»»¸ m«a»»»¸ _finally«->>«m«a»¸ ->«Unit¸ Unit»¸ m«a»»»»»¸ instance«"## Monad for `?(a)` Type
 
-The simplest example of a monad is probably the nullable type `?(a)`. Implementing `Monad` typeclass for it type allows chaining functions that might return `null`."»¸ Monad«?¸ >>=«->>«n¸ fun¸ match«n¸ |«?«val»¸ fun«val»»¸ |«_¸ Null»»»»¸ _return«->>«val¸ ?«val»»»»»¸ template«---«"## `mdo` Syntax
+The simplest example of a monad is probably the nullable type `?(a)`. Implementing `Monad` typeclass for it type allows chaining functions that might return `null`."¸ Monad«?¸ >>=«->>«n¸ fun¸ match«n¸ |«?«val»¸ fun«val»»¸ |«_¸ Null»»»»¸ _return«->>«val¸ ?«val»»»»»¸ template«"## `mdo` Syntax
 
 There is also Haskell-like syntactic sugar for composing monads. The `mdo` macro below introduces a block which can contain `mlet` and `mreturn` commands. The former one wraps the `>>=` operation into more convenient syntax. The latter one calls `_return` for given value. Below is an example showing a ? monad:
 ```
@@ -47,7 +47,7 @@ mdo
   mlet x = ?(4)
   mlet y = needValue(x)
   mreturn y
-```"»¸ mdo«syntax«mlet«'var¸ " = "¸ 'value¸ >>=«'value¸ ->«'var¸ 'next»»»¸ mreturn«'value¸ _return«'value»»¸ _«'expr¸ >>«'expr¸ 'next»»»»¸ ---«"## List Comprehension Syntax
+```"¸ mdo«syntax«mlet«'var¸ " = "¸ 'value¸ >>=«'value¸ ->«'var¸ 'next»»»¸ mreturn«'value¸ _return«'value»»¸ _«'expr¸ >>«'expr¸ 'next»»»»¸ "## List Comprehension Syntax
 
 Since almost all collections implement `Monad` typeclass¸ we provide an alternative syntactic macro `seq` that resembles list comprehension syntax found in many languages. It enables notation like this:
 ```
@@ -57,10 +57,10 @@ seq
   where x == y
   yield x + y
 ```
-The `for` command is the same as `mlet` in the `mdo` macro¸ and `yield` is same as `mreturn`. The only addition here is the `where` command that filters &mdash; or rather short circuits the monad chain. That operation only works if there is an instance of `MonadPlus` for the type in question."»¸ seq«syntax«for«'var¸ " *in* "¸ 'value¸ >>=«'value¸ ->«'var¸ 'next»»»¸ where«'cond¸ ?>>«'cond¸ 'next»»¸ yield«'value¸ _return«'value»»»»»¸ define«---«"## Filtering
+The `for` command is the same as `mlet` in the `mdo` macro¸ and `yield` is same as `mreturn`. The only addition here is the `where` command that filters &mdash; or rather short circuits the monad chain. That operation only works if there is an instance of `MonadPlus` for the type in question."¸ seq«syntax«for«'var¸ " *in* "¸ 'value¸ >>=«'value¸ ->«'var¸ 'next»»»¸ where«'cond¸ ?>>«'cond¸ 'next»»¸ yield«'value¸ _return«'value»»»»»¸ define«"## Filtering
 
-The `?>>` macro can be used to filter `MonadPlus` instances. It returns the monad if a predicate is true; otherwise it returns monad zero."»¸ ?>>«->>«Bool¸ m«a¸ Monad¸ MonadPlus»¸ m«a»»¸ ->>«pred¸ m¸ if«pred¸ m¸ _m0»»»¸ ---«"## Lifting Functions and Macros
+The `?>>` macro can be used to filter `MonadPlus` instances. It returns the monad if a predicate is true; otherwise it returns monad zero."¸ ?>>«->>«Bool¸ m«a¸ Monad¸ MonadPlus»¸ m«a»»¸ ->>«pred¸ m¸ if«pred¸ m¸ _m0»»»¸ "## Lifting Functions and Macros
 
 _Lifting_ is a monadic operation that converts a non-monadic function into an equivalent function that operates on monadic values. We say that a function is ""lifted into the monad"" by the lifting operators. A lifted function is useful for operating on monad values outside of a `mdo` block and can also allow for cleaner code within a `mdo` block.
 
-As an example¸ `_liftFM` takes an unary function $a -> b$ and converts it to a monadic function $m(a) -> m(b)$."»¸ _liftFM«->>«->«a¸ b»¸ ->«m«a¸ Monad»¸ m«b»»»¸ ->>«fun¸ ->«m¸ mdo«mlet«a¸ m»¸ mreturn«fun«a»»»»»»¸ _liftMM«->>«->>«a¸ b»¸ ->«m«a¸ Monad»¸ m«b»»»¸ ->>«_mac¸ ->«m¸ mdo«mlet«a¸ m»¸ mreturn«_mac«a»»»»»»¸ _liftFM2«->>«->«a¸ b¸ c»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»»»¸ ->>«fun¸ ->«ma¸ mb¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mreturn«fun«a¸ b»»»»»»¸ _liftMM2«->>«->>«a¸ b¸ c»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»»»¸ ->>«_mac¸ ->«ma¸ mb¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mreturn«_mac«a¸ b»»»»»»¸ _liftFM3«->>«->«a¸ b¸ c¸ d»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»¸ m«d»»»¸ ->>«fun¸ ->«ma¸ mb¸ mc¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mlet«c¸ mc»¸ mreturn«fun«a¸ b¸ c»»»»»»¸ _liftMM3«->>«->>«a¸ b¸ c¸ d»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»¸ m«d»»»¸ ->>«_mac¸ ->«ma¸ mb¸ mc¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mlet«c¸ mc»¸ mreturn«_mac«a¸ b¸ c»»»»»»¸ _liftFM4«->>«->«a¸ b¸ c¸ d¸ e»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»¸ m«d»¸ m«e»»»¸ ->>«fun¸ ->«ma¸ mb¸ mc¸ md¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mlet«c¸ mc»¸ mlet«d¸ md»¸ mreturn«fun«a¸ b¸ c¸ d»»»»»»¸ _liftMM4«->>«->>«a¸ b¸ c¸ d¸ e»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»¸ m«d»¸ m«e»»»¸ ->>«_mac¸ ->«ma¸ mb¸ mc¸ md¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mlet«c¸ mc»¸ mlet«d¸ md»¸ mreturn«_mac«a¸ b¸ c¸ d»»»»»»»»
+As an example¸ `_liftFM` takes an unary function $a -> b$ and converts it to a monadic function $m(a) -> m(b)$."¸ _liftFM«->>«->«a¸ b»¸ ->«m«a¸ Monad»¸ m«b»»»¸ ->>«fun¸ ->«m¸ mdo«mlet«a¸ m»¸ mreturn«fun«a»»»»»»¸ _liftMM«->>«->>«a¸ b»¸ ->«m«a¸ Monad»¸ m«b»»»¸ ->>«_mac¸ ->«m¸ mdo«mlet«a¸ m»¸ mreturn«_mac«a»»»»»»¸ _liftFM2«->>«->«a¸ b¸ c»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»»»¸ ->>«fun¸ ->«ma¸ mb¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mreturn«fun«a¸ b»»»»»»¸ _liftMM2«->>«->>«a¸ b¸ c»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»»»¸ ->>«_mac¸ ->«ma¸ mb¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mreturn«_mac«a¸ b»»»»»»¸ _liftFM3«->>«->«a¸ b¸ c¸ d»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»¸ m«d»»»¸ ->>«fun¸ ->«ma¸ mb¸ mc¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mlet«c¸ mc»¸ mreturn«fun«a¸ b¸ c»»»»»»¸ _liftMM3«->>«->>«a¸ b¸ c¸ d»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»¸ m«d»»»¸ ->>«_mac¸ ->«ma¸ mb¸ mc¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mlet«c¸ mc»¸ mreturn«_mac«a¸ b¸ c»»»»»»¸ _liftFM4«->>«->«a¸ b¸ c¸ d¸ e»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»¸ m«d»¸ m«e»»»¸ ->>«fun¸ ->«ma¸ mb¸ mc¸ md¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mlet«c¸ mc»¸ mlet«d¸ md»¸ mreturn«fun«a¸ b¸ c¸ d»»»»»»¸ _liftMM4«->>«->>«a¸ b¸ c¸ d¸ e»¸ ->«m«a¸ Monad»¸ m«b»¸ m«c»¸ m«d»¸ m«e»»»¸ ->>«_mac¸ ->«ma¸ mb¸ mc¸ md¸ mdo«mlet«a¸ ma»¸ mlet«b¸ mb»¸ mlet«c¸ mc»¸ mlet«d¸ md»¸ mreturn«_mac«a¸ b¸ c¸ d»»»»»»»»
