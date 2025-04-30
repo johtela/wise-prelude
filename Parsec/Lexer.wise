@@ -4,7 +4,7 @@ This module implements a lexical analyzer a.k.a. _lexer_ for converting a string
 
 Token is a parameterized type whose first argument is the token type, typically an enumeration. The second argument is either a regexp used to recognize the token or the token itself as string."¸ data«Token«s»¸ .Token«s¸ String»»¸ "## Lexer Type
 
-Lexer type consists of array of tokens and the combined regexp that recognizes each of them as a separate group."¸ data«Lexer«s»¸ .Lexer«[«Token«s»»¸ RegExp»»»¸ define«"## Creating a Lexer
+Lexer type consists of array of tokens and the combined regexp that recognizes each of them as a separate group."¸ data«Lexer«s»¸ .Lexer«[«Token«s»»¸ RegExp»»»¸ instance«Show«Token«a»¸ _show«->>«token¸ do«let«.Token«_¸ str»¸ token»¸ str»»»»»¸ define«"## Creating a Lexer
 
 To create a lexer you need to specify the tokens for the `newLexer` function. It constructs the combined regexp that recognizes all the tokens."¸ newLexer«->«[«Token«s»»¸ Lexer«s»»¸ ->«tokens¸ do«let«matcher¸ @join«@map«tokens¸ ->>«token¸ i¸ do«let«.Token«_¸ re»¸ token»¸ _concat«[«"(?<g"¸ _show«i»¸ ">"¸ re¸ ")"»»»»»¸ "|"»»¸ .Lexer«tokens¸ _reflags«matcher¸ "yu"»»»»»¸ "## Match a Token with Lexer
 
