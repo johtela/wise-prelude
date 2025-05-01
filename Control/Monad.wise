@@ -10,11 +10,11 @@ The Monad typeclass is copied blatantly from Haskell. The concept of monad is de
 > - the mode of computation: what else it can do¸ in addition to emitting its single (hence the name) output value.
 "¸ class«"## Functors
 
-A functor is a concept from functional programming that represents a data structure you can map over. It provides a way to apply a function to the values inside the structure without changing the structure itself.
+A functor represents a data structure you can map over. It provides a way to apply a function to the values inside the structure without changing the structure itself.
 
 In practical terms, a functor is any type that implements a map operation. The map function takes a function and applies it to each value inside the functor, returning a new functor with the transformed values."¸ Functor«f«a¸ *»¸ _map«->>«f«a»¸ " *with* "¸ ->«a¸ b»¸ f«b»»»»¸ "## Monadic Operations
 
-A type implementing the `Monad` typeclass can have variable number of type arguments, but it must have at least one. We denote the implementing type as $m(a, **)$ where $m$ is the type and $a$ its first argument. Monad has two operations. The simpler one `_return` ""lifts"" a value into a monadic type.   
+A type implementing the `Monad` typeclass can have variable number of type arguments, but at minimum one. We denote the implementing type as $m(a, **)$ where $m$ is the type and $a$ its first argument. Monad has two operations. The simpler one `_return` ""lifts"" a value into a monadic type.   
 
 $$a ->> m(a)$$
 
