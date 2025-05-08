@@ -23,4 +23,4 @@ Fold macros make writing expressions with binary operators easier; the same bina
 `_log` is the JS equivalent of `print` in other languages."¸ _log«->>«a¸ Unit»¸ ->>«val¸ asm«`console.log(`¸ val¸ `)`»»»»¸ define«"## Type Casts
 
 
-To be able to typecast higher kinded types such as arrays¸ we define the castable type class."¸ _cast«->>«c«a»¸ ->>«a¸ b»¸ c«b»»¸ ->>«coll¸ " *with* "¸ _caster¸ asm«coll»»»»»
+To be able to typecast higher kinded types such as arrays¸ we define the castable type class."¸ _cast«->>«c«a»¸ ->>«a¸ b»¸ c«b»»¸ ->>«coll¸ " *with* "¸ _¸ asm«coll»»»»»
