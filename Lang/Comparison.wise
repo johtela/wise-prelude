@@ -3,7 +3,7 @@ Lang/Comparison«import«Lang/String»¸ "# ⚖️ Comparison and Logical Operat
 Basic comparison and logical operators are defined here. Typically these are built into a programming language core¸ but in Wise they are macros and typeclass methods."¸ define«"## Logical Operators
 
 
-Basic logical operators  _not_ `!`¸ _and_ `&&`¸ _or_ `||` translate to the corresponding JS operators.  "¸ !«->>«Bool¸ Bool»¸ ->>«a¸ asm«`!`¸ a»»»¸ &&«->>«Bool¸ Bool¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` && `¸ b»»»¸ ||«->>«Bool¸ Bool¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` || `¸ b»»»¸ "## JS Comparison Operators
+Basic logical operators  _not_ `!`, _and_ `&&`, _or_ `||` translate to the corresponding JS operators.  "¸ !«->>«Bool¸ Bool»¸ ->>«a¸ asm«`!`¸ a»»»¸ &&«->>«Bool¸ Bool¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` && `¸ b»»»¸ ||«->>«Bool¸ Bool¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` || `¸ b»»»¸ "## JS Comparison Operators
 
 Wrappers for JS comparison operators make implementing typeclasses that follow easier."¸ ===«->>«a¸ a¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` === `¸ b»»»¸ !==«->>«a¸ a¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` !== `¸ b»»»¸ _json_eq«->>«a¸ a¸ Bool»¸ ->>«a¸ b¸ ===«.json«a»¸ .json«b»»»»¸ _js_lt«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` < `¸ b»»»¸ _js_le«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` <= `¸ b»»»¸ _js_gt«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` > `¸ b»»»¸ _js_ge«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` >= `¸ b»»»»¸ class«"## Eq Class
 
