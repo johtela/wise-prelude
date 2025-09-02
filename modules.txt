@@ -6,6 +6,7 @@ Data/Dictionary
 Data/Iterator
 Data/List
 Data/Map
+Data/Monoid
 Data/Tuple
 Html/Fetch
 Lang/Base
@@ -20,8 +21,7 @@ Math/Base
 Math/Hash
 Math/Matrix
 Math/Vector
-Test1
 Parsec/Input
 Parsec/Lexer
 Parsec/Parser
-Data/Monoid
+Test1
