@@ -8,7 +8,6 @@ Data/List
 Data/Map
 Data/Monoid
 Data/Tuple
-Html/Fetch
 Lang/Base
 Lang/Comparison
 Lang/Date

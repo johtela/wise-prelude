@@ -1,6 +1,6 @@
 Data/Monoid«import«Math/Arith»¸ class«"# Monoids
 
-_Monoid_ captures the mathematical concept of structures that can be combined associatively with an identity element. It provides a common interface for ""combining things"" in a predictable way.
+_Monoid_ captures the mathematical concept of structures that can be combined associatively with an identity element. It provides a common interface for ""combining things"" in a predictable way.
 
 A monoid has two methods `_mempty` and `_mappend`. The first one returns an empty or zero value of the type. When an empty value is appended to a monoid the result will be the original monoid.
 
@@ -9,7 +9,8 @@ $$""_mappend""(m, ""_mempty"") = m$$
 
 The `_mappend` operation combines two monoids. It has to be associative:
 
-$$""_mappend""(""_mappend""(m1, m2), m3) = ""_mappend""(m1, ""_mappend""(m2, m3))$$
+$$|:: ""_mappend""(""_mappend""(m1, m2), m3)} =;;
+""_mappend""(m1, ""_mappend""(m2, m3)) ::|$$
 "¸ Monoid«a¸ _mempty«a»¸ _mappend«->>«a¸ a¸ a»»»»¸ type«"## Bool Monoids
 
 
