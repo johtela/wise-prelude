@@ -1,4 +1,4 @@
-Math/Vector«import«Math/Base¸ Math/Arith¸ Data/Tuple»¸ "# ↗ Vectors
+Math/Vector«import«Math/Arith¸ Data/Tuple»¸ "# ↗ Vectors
 
 Arithmetic types can be trivially extended to vectors. Mainly we are concerned with 2 - 4-dimensional vectors that share the same operators.
 
