@@ -1,6 +1,7 @@
 Control/Async
 Control/Monad
 Data/Array
+Data/Buffer
 Data/Collection
 Data/Dictionary
 Data/Iterator
@@ -17,6 +18,7 @@ Lang/RegExp
 Lang/String
 Math/Arith
 Math/Base
+Math/BigInt
 Math/Hash
 Math/Matrix
 Math/Vector
@@ -24,5 +26,3 @@ Parsec/Input
 Parsec/Lexer
 Parsec/Parser
 Test1
-Data/Buffer
-Math/BigInt
