@@ -1,9 +1,0 @@
-Parsec/Input«import«Data/Array»¸ "# Parser Input
-
-We define an interface, a record with predefined fields, that is used as an abstract input to parser combinators. There can be multiple implementations of this interface. The ParserInput interface is ineherently mutable in that the `current` item and `position` changes every time `next` is evaluated. 
-
-
-It's also possible to change the position through the `setPosition` function. After that the `current` token is undefined, so you need to call `next` to update it."¸ type«alias«ParserInput«i»¸ {«position«Lazy«Number»»¸ setPosition«->«Number¸ Number»»¸ next«Lazy«i»»¸ current«Lazy«i»»»»»¸ define«"## Input for Indexed Types
-
-
-All types implementing class `Indexed` can use the macro below to yield a parser input interface."¸ _indexedInput«->>«a«i¸ Indexed»¸ i¸ ParserInput«i»»¸ ->>«coll¸ eof¸ do«set«pos¸ -1»¸ set«curr¸ eof»¸ let«next¸ \«:=«curr¸ if«<«++«pos»¸ @length«coll»»¸ @«coll¸ ^«pos»»¸ eof»»»»¸ {«position«\«^«pos»»»¸ setPosition«->«p¸ :=«pos¸ p»»»¸ next«next»¸ current«\«^«curr»»»»»»»¸ "For performance reasons, we specialize the macro above for arrays."¸ arrayInput«->«[«i»¸ i¸ ParserInput«i»»¸ ->«array¸ eof¸ _indexedInput«array¸ eof»»»»»
