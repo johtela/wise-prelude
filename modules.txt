@@ -22,7 +22,4 @@ Math/BigInt
 Math/Hash
 Math/Matrix
 Math/Vector
-Parsec/Input
-Parsec/Lexer
-Parsec/Parser
 Test1
