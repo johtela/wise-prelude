@@ -5,7 +5,7 @@ Basic comparison and logical operators are defined here. Typically these are bui
 
 Basic logical operators  _not_ `!`, _and_ `&&`, _or_ `||` translate to the corresponding JS operators.  "¸ !«->>«Bool¸ Bool»¸ ->>«a¸ asm«`!`¸ a»»»¸ &&«->>«Bool¸ Bool¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` && `¸ b»»»¸ ||«->>«Bool¸ Bool¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` || `¸ b»»»¸ "## JS Comparison Operators
 
-Wrappers for JS comparison operators make implementing typeclasses that follow easier."¸ ===«->>«a¸ a¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` === `¸ b»»»¸ !==«->>«a¸ a¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` !== `¸ b»»»¸ _json_eq«->>«a¸ a¸ Bool»¸ ->>«a¸ b¸ ===«.json«a»¸ .json«b»»»»¸ _js_lt«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` < `¸ b»»»¸ _js_le«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` <= `¸ b»»»¸ _js_gt«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` > `¸ b»»»¸ _js_ge«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` >= `¸ b»»»»¸ class«"## Eq Class
+Wrappers for JS comparison operators make implementing typeclasses that follow easier."¸ ===«->>«a¸ a¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` === `¸ b»»»¸ !==«->>«a¸ a¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` !== `¸ b»»»¸ _json_eq«->>«a¸ a¸ Bool»¸ ->>«a¸ b¸ ===«.toJSON«a»¸ .toJSON«b»»»»¸ _js_lt«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` < `¸ b»»»¸ _js_le«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` <= `¸ b»»»¸ _js_gt«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` > `¸ b»»»¸ _js_ge«->>«Number¸ Number¸ Bool»¸ ->>«a¸ b¸ asm«a¸ ` >= `¸ b»»»»¸ class«"## Eq Class
 
 
 Typeclass Eq is implemented by types that allow comparing their values for equality. The inequality operator `!=` has a default implementation. For performance reasons, it's recommended to explicitly implement it when possible."¸ Eq«a¸ ==«->>«a¸ a¸ Bool»»¸ !=«->>«a¸ a¸ Bool»¸ ->>«a1¸ a2¸ !«==«a1¸ a2»»»»»¸ "## Ord Class

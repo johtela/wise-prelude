@@ -4,6 +4,9 @@ Strings in Wise are objects derived from JS string type. All the properties and 
 
 For convenience¸ we define some additional macros for string manipulation. `##` operator concatenates two strings and `_concat` does the same for arbitrary number of strings in an array."¸ ##«->>«String¸ String¸ String»¸ ->>«s1¸ s2¸ asm«s1¸ `+`¸ s2»»»¸ _concat«->>«[«String»¸ String»¸ ->>«strs¸ asm«`String.prototype.concat(...`¸ strs¸ `)`»»»¸ _strLen«->>«String¸ Number»¸ ->>«str¸ String:«.length«str»»»»¸ _char«->>«str¸ "["¸ index¸ "]"¸ asm«str¸ `[`¸ index¸ `]`»»»¸ "## JS Interop
 
-JS types and values all have a string reprsentation. The `_typeof` macro returns the intrinsic JS type as string. `_toString` is a wrapper for the method with the same name. Finally¸ `_json` serializes any value to JSON format."¸ _typeof«->>«a¸ String»¸ ->>«a¸ asm«`typeof `¸ a»»»¸ .toString«->>«a¸ String»¸ ->>«val¸ asm«val¸ `.toString()`»»»¸ .json«->>«a¸ String»¸ ->>«a¸ asm«`JSON.stringify(`¸ a¸ `)`»»»»¸ "## Show Class
+JS types and values all have a string reprsentation. The `_typeof` macro returns the intrinsic JS type as string. `_toString` is a wrapper for the method with the same name. Finally¸ `_json` serializes any value to JSON format."¸ _typeof«->>«a¸ String»¸ ->>«a¸ asm«`typeof `¸ a»»»¸ .toString«->>«a¸ String»¸ ->>«val¸ asm«val¸ `.toString()`»»»¸ .toJSON«->>«a¸ String»¸ ->>«a¸ asm«`JSON.stringify(`¸ a¸ `)`»»»¸ .fromJSON«->>«String¸ a»¸ ->>«str¸ asm«`JSON.parse(`¸ str¸ `)`»»»»¸ "## Show & Read Classes
 
-Show typeclass enables a type to define how it's represented as string. The `_show` method can be implemented differently for each type."¸ class«Show«a¸ _show«->>«a¸ String»»»»¸ instance«"We define an instance of Show for all primitive types."¸ Show«Bool¸ _show«.toString»»¸ Show«Number¸ _show«.toString»»¸ Show«String¸ _show«_id»»»»
+Show typeclass enables a type to define how it's represented as string. The `_show` method can be implemented differently for each type.
+
+
+Conversely the Read typeclass converts a string to a value of type `a`."¸ class«Show«a¸ _show«->>«a¸ String»»»¸ Read«a¸ _read«->>«String¸ a»»»»¸ instance«"We define instance of Show and Read for all primitive types."¸ Show«Bool¸ _show«.toString»»¸ Show«Number¸ _show«.toString»»¸ Read«Bool¸ _read«.fromJSON»»¸ Read«Number¸ _read«->>«str¸ asm«`Number(`¸ str¸ `)`»»»»»»
